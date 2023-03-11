@@ -1,5 +1,5 @@
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: PersistentVolumeClaim
-apiVersion: v1
 metadata:
   name: tekton-workspace
 spec:
