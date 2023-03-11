@@ -23,7 +23,7 @@ Install latest Tekton:
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
 
-And watch until installation is complete:
+Wait until installation is complete:
 
 ```sh
 kubectl get pods --namespace tekton-pipelines --watch
@@ -42,8 +42,14 @@ This is section is basically a slimmer version of that guide.
 **Create a namespace and install ArgoCD in it:**
 
 ```sh
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl create namespace argocd \
+ && kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+Wait until installation is complete:
+
+```sh
+kubectl get pods -n argocd --watch
 ```
 
 **Install ArgoCD CLI:**
@@ -53,16 +59,16 @@ https://argo-cd.readthedocs.io/en/stable/cli_installation/
 I use install with `curl`:
 
 ```sh
-curl -SL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
-rm argocd-linux-amd64
+curl -SL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 \
+ && sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd \
+ && rm argocd-linux-amd64
 ```
 
 **Enable access to ArgoCD:**
 
 ```sh
-kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}' \
+ && kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
 I change the `password` to `thepassword`. First by getting the encryped value:
@@ -96,11 +102,9 @@ You can also login via GUI by browsing to: https://localhost:8080/
 
 **Let ArgoCD apply Tekton**
 
-Let ArgoCD monitor this repository and apply it to this cluster:
+Let ArgoCD monitor tekton-tasks in this repository and apply it to this cluster:
 
 ```sh
-kubectl config set-context --current --namespace=argocd
-
 argocd app create tekton-tasks \
  --repo https://github.com/tomasbjerre/kubernetes.git \
  --path tekton \

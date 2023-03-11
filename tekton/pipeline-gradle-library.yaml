@@ -1,0 +1,28 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipeline-gradle-library
+spec:
+  params:
+  - name: repo-url
+    type: string
+  workspaces:
+  - name: shared-data
+  tasks:
+  - name: fetch-source
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: shared-data
+    params:
+    - name: url
+      value: $(params.repo-url)
+
+  - name: build-push
+    runAfter: ["fetch-source"]
+    taskRef:
+      name: task-gradle-library-build
+    workspaces:
+    - name: source
+      workspace: shared-data

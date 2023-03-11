@@ -1,7 +1,0 @@
-apiVersion: tekton.dev/v1beta1
-kind: TaskRun
-metadata:
-  name: run-gradle-library
-spec:
-  taskRef:
-    name: task-gradle-library-build
