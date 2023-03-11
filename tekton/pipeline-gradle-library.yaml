@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: pipeline-gradle-library
-  namespace: tekton-pipelines
 spec:
   tasks:
   - name: hello
