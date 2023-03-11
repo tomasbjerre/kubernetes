@@ -1,13 +1,15 @@
-These are some notes on Kubernetes.
+# Kubernetes
 
-# Setup Minikube
+This is the result of me fiddling with Kubernetes, ArgoCD, Helm Tekton...
+
+## Setup Minikube
 
 _Will make Kubernetes available on localhost._
 
 There is an excelent guide here:
 https://minikube.sigs.k8s.io/docs/start/
 
-# ArgoCD
+## Setup ArgoCD
 
 _Will detect changes in Git and apply those changes to Kubernetes._
 
@@ -71,12 +73,6 @@ argocd \
 ```
 
 You can also login via GUI by browsing to: https://localhost:8080/
-
-**Deploy an application**
-
-# Tekton
-
-https://tekton.dev/docs/getting-started/tasks/
 
 # Commands
 
