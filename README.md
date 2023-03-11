@@ -17,6 +17,12 @@ There is an excelent guide here:
 
 https://tekton.dev/docs/installation/pipelines/
 
+Create a namespace for Tekton:
+
+```sh
+kubectl create namespace tekton-pipelines
+```
+
 Install latest Tekton:
 
 ```sh
@@ -26,7 +32,7 @@ kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline
 Wait until installation is complete:
 
 ```sh
-kubectl get pods --namespace tekton-pipelines --watch
+kubectl get pods --namespace tekton --watch
 ```
 
 ## Setup ArgoCD
