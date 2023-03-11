@@ -108,6 +108,12 @@ argocd app create tekton-tasks \
  --dest-namespace default
 ```
 
+And have it automate sync:
+
+```sh
+argocd app set tekton-tasks --sync-policy automated
+```
+
 # Commands
 
 | **Command**          | **Explanation**                                        |
