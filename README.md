@@ -101,7 +101,11 @@ Let ArgoCD monitor this repository and apply it to this cluster:
 ```sh
 kubectl config set-context --current --namespace=argocd
 
-argocd app create tekton-tasks --repo https://github.com/tomasbjerre/kubernetes.git --path tekton --dest-server https://kubernetes.default.svc --dest-namespace default
+argocd app create tekton-tasks \
+ --repo https://github.com/tomasbjerre/kubernetes.git \
+ --path tekton \
+ --dest-server https://kubernetes.default.svc \
+ --dest-namespace default
 ```
 
 # Commands
