@@ -1,0 +1,49 @@
+- Why does get and describe differ?
+- How to reduce sync interval of argocd?
+
+You can get the `argocd-cm` configmap with:
+
+```sh
+kubectl -n argocd \
+ get configmaps argocd-cm -o yaml
+```
+
+```sh
+kubectl -n argocd \
+ describe configmaps argocd-cm
+```
+
+There is a config-file in this repo that reduces the polling interval, default is 3 minutes:
+
+```sh
+kubectl -n argocd \
+ apply -f argocd/argocd-cm.yaml
+```
+
+And redeploy ArgoCD after the changed config:
+
+```sh
+kubectl -n argocd \
+ rollout restart deploy argocd-repo-server
+```
+
+#
+
+# Copied from:
+
+#
+
+# https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
+
+#
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+name: argocd-cm
+namespace: argocd
+labels:
+app.kubernetes.io/name: argocd-cm
+app.kubernetes.io/part-of: argocd
+data:
+timeout.reconciliation: 10s
