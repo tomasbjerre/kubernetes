@@ -6,4 +6,4 @@ spec:
   tasks:
   - name: hello
     taskRef:
-      name: default/task-hello
+      name: task-hello
