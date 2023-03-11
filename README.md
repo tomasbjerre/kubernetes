@@ -9,6 +9,26 @@ _Will make Kubernetes available on localhost._
 There is an excelent guide here:
 https://minikube.sigs.k8s.io/docs/start/
 
+## Setup Tekton
+
+_Will enable pipelines in Kubernetes._
+
+There is an excelent guide here:
+
+https://tekton.dev/docs/installation/pipelines/
+
+Install latest Tekton:
+
+```sh
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+```
+
+And watch until installation is complete:
+
+```sh
+kubectl get pods --namespace tekton-pipelines --watch
+```
+
 ## Setup ArgoCD
 
 _Will detect changes in Git and apply those changes to Kubernetes._
@@ -73,6 +93,16 @@ argocd \
 ```
 
 You can also login via GUI by browsing to: https://localhost:8080/
+
+**Let ArgoCD apply Tekton**
+
+Let ArgoCD monitor this repository and apply it to this cluster:
+
+```sh
+kubectl config set-context --current --namespace=argocd
+
+argocd app create tekton-tasks --repo https://github.com/tomasbjerre/kubernetes.git --path tekton --dest-server https://kubernetes.default.svc --dest-namespace default
+```
 
 # Commands
 
