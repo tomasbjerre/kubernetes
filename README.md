@@ -1,6 +1,6 @@
 # Kubernetes
 
-This is the result of me fiddling with Kubernetes, ArgoCD, Helm Tekton...
+This is the result of me fiddling with Kubernetes, ArgoCD, Tekton, Helm...
 
 ## Setup Minikube
 
@@ -26,8 +26,11 @@ kubectl create namespace tekton-pipelines
 Install latest Tekton:
 
 ```sh
-kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+kubectl apply --filename \
+ https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
+
+_This file can also be copied to a path monitoried by an ArgoCD app and have ArgoCD apply it._
 
 Wait until installation is complete:
 
@@ -43,6 +46,8 @@ Tekton Dashboard lets you visualize runs:
 kubectl apply --filename \
  https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
 ```
+
+_This file can also be copied to a path monitoried by an ArgoCD app and have ArgoCD apply it._
 
 You can use port forwarding to gain access to it:
 
@@ -67,7 +72,9 @@ This is section is basically a slimmer version of that guide.
 
 ```sh
 kubectl create namespace argocd \
- && kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ && kubectl apply \
+  -n argocd \
+  -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
 Wait until installation is complete:
