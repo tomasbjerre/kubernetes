@@ -35,6 +35,23 @@ Wait until installation is complete:
 kubectl get pods --namespace tekton --watch
 ```
 
+## Setup Tekton Dashboard
+
+Tekton Dashboard lets you visualize runs:
+
+```sh
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml
+```
+
+You can use port forwarding to gain access to it:
+
+```sh
+kubectl --namespace tekton-pipelines \
+ port-forward svc/tekton-dashboard 9097:9097
+```
+
+And browse to: http://localhost:9097/
+
 ## Setup ArgoCD
 
 _Will detect changes in Git and apply those changes to Kubernetes._

@@ -4,18 +4,7 @@ metadata:
   name: pipeline-gradle-library
   namespace: tekton-pipelines
 spec:
-  params:
-  - name: repo-url
-    type: string
-  workspaces:
-  - name: shared-data
   tasks:
-  - name: fetch-source
+  - name: hello
     taskRef:
-      name: git-clone
-    workspaces:
-    - name: output
-      workspace: shared-data
-    params:
-    - name: url
-      value: $(params.repo-url)
+      name: task-hello

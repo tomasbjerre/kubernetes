@@ -5,18 +5,3 @@ metadata:
 spec:
   pipelineRef:
     name: pipeline-gradle-library
-  podTemplate:
-    securityContext:
-      fsGroup: 65532
-  workspaces:
-  - name: shared-data
-    volumeClaimTemplate:
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
-  params:
-  - name: repo-url
-    value: https://github.com/tomasbjerre/violations-lib.git
