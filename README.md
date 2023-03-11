@@ -114,6 +114,8 @@ And have it automate sync:
 argocd app set tekton-tasks --sync-policy automated
 ```
 
+**TODO: how to reduce sync interval?**
+
 # Commands
 
 | **Command**          | **Explanation**                                        |
