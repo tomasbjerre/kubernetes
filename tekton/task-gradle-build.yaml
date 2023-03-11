@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: task-hello
+  name: task-gradle-build
 spec:
   steps:
-    - name: helloworld
-      image: ubuntu
+    - name: build
+      image: openjdk:17-alpine
       script: |
         #!/bin/bash
         echo "Hello World"

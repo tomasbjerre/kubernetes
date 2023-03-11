@@ -4,6 +4,6 @@ metadata:
   name: pipeline-gradle-library
 spec:
   tasks:
-  - name: hello
+  - name: Build
     taskRef:
-      name: task-hello
+      name: task-gradle-build

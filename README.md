@@ -40,7 +40,8 @@ kubectl get pods --namespace tekton --watch
 Tekton Dashboard lets you visualize runs:
 
 ```sh
-kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml
+kubectl apply --filename \
+ https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
 ```
 
 You can use port forwarding to gain access to it:
