@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: pipeline-run-gradle-library
+  name: pipeline-run-gradle-library
 spec:
   pipelineRef:
     name: pipeline-gradle-library
