@@ -30,7 +30,7 @@ kubectl apply --filename \
  https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
 
-_This file can also be copied to a path monitoried by an ArgoCD app and have ArgoCD apply it._
+_This file can also be copied to a path monitored by an ArgoCD app and have ArgoCD apply it._
 
 Wait until installation is complete:
 
@@ -47,7 +47,7 @@ kubectl apply --filename \
  https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
 ```
 
-_This file can also be copied to a path monitoried by an ArgoCD app and have ArgoCD apply it._
+_This file can also be copied to a path monitored by an ArgoCD app and have ArgoCD apply it._
 
 You can use port forwarding to gain access to it:
 
