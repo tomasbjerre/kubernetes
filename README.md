@@ -17,12 +17,6 @@ There is an excelent guide here:
 
 https://tekton.dev/docs/installation/pipelines/
 
-Create a namespace for Tekton:
-
-```sh
-kubectl create namespace tekton-pipelines
-```
-
 Install latest Tekton:
 
 ```sh
@@ -35,7 +29,7 @@ _This file can also be copied to a path monitored by an ArgoCD app and have Argo
 Wait until installation is complete:
 
 ```sh
-kubectl get pods --namespace tekton --watch
+kubectl get pods --namespace tekton-pipelines --watch
 ```
 
 ## Setup Tekton Dashboard
@@ -48,6 +42,12 @@ kubectl apply --filename \
 ```
 
 _This file can also be copied to a path monitored by an ArgoCD app and have ArgoCD apply it._
+
+Wait until installation is complete:
+
+```sh
+kubectl get pods --namespace tekton-pipelines --watch
+```
 
 You can use port forwarding to gain access to it:
 
