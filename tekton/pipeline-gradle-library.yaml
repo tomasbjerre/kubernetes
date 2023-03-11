@@ -8,6 +8,8 @@ spec:
     type: string
   workspaces:
   - name: shared-data
+    persistentVolumeClaim:
+      claimName: tekton-workspace
   tasks:
   - name: fetch-source
     taskRef:
