@@ -122,7 +122,8 @@ argocd app set tekton-tasks --sync-policy automated
 
 # Commands
 
-| **Command**          | **Explanation**                                        |
-| -------------------- | ------------------------------------------------------ |
-| `minikube start`     | Start Minikube                                         |
-| `minikube dashboard` | Start Minikube dashboard so that you can browse to it. |
+| **Command**              | **Explanation**                                        |
+| ------------------------ | ------------------------------------------------------ |
+| `minikube start`         | Start Minikube                                         |
+| `minikube dashboard`     | Start Minikube dashboard so that you can browse to it. |
+| `kubectl events --watch` | Watch all events                                       |

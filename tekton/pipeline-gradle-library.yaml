@@ -23,6 +23,3 @@ spec:
     runAfter: ["fetch-source"]
     taskRef:
       name: task-gradle-library-build
-    workspaces:
-    - name: source
-      workspace: shared-data
