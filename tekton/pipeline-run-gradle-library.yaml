@@ -19,4 +19,4 @@ spec:
             storage: 1Gi
   params:
   - name: repo-url
-    value: git@github.com:tomasbjerre/violations-lib.git
+    value: https://github.com/tomasbjerre/violations-lib.git
