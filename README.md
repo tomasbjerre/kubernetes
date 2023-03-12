@@ -153,18 +153,23 @@ argocd app set tekton-tasks --sync-policy automated
 
 ## Setup Helm
 
-I have followed:
+Helm CLI: https://helm.sh/docs/intro/install/
 
-- https://argo-cd.readthedocs.io/en/stable/user-guide/helm/
+```sh
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \
+ && chmod 700 get_helm.sh \
+ && ./get_helm.sh \
+ && rm ./get_helm.sh
+```
 
 I added the Helm application in this repository, you can let ArgoCD install it:
 
 ```sh
 argocd app create helm-application \
  --repo https://github.com/tomasbjerre/kubernetes.git \
- --path helm-application \
+ --path helm \
  --dest-server https://kubernetes.default.svc \
- --dest-namespace helm-application
+ --dest-namespace helm
 ```
 
 # Commands
