@@ -151,6 +151,22 @@ argocd app set tekton-tasks --sync-policy automated
 
 **TODO: how to reduce sync interval?**
 
+## Setup Helm
+
+I have followed:
+
+- https://argo-cd.readthedocs.io/en/stable/user-guide/helm/
+
+I added the Helm application in this repository, you can let ArgoCD install it:
+
+```sh
+argocd app create helm-application \
+ --repo https://github.com/tomasbjerre/kubernetes.git \
+ --path helm-application \
+ --dest-server https://kubernetes.default.svc \
+ --dest-namespace helm-application
+```
+
 # Commands
 
 | **Command**              | **Explanation**                                        |
