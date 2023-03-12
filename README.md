@@ -167,7 +167,7 @@ I added the Helm application in this repository, you can let ArgoCD install it:
 ```sh
 argocd app create helm-application \
  --repo https://github.com/tomasbjerre/kubernetes.git \
- --path helm \
+ --path helm/wiremock \
  --dest-server https://kubernetes.default.svc \
  --dest-namespace default
 ```
