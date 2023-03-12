@@ -169,7 +169,7 @@ argocd app create helm-application \
  --repo https://github.com/tomasbjerre/kubernetes.git \
  --path helm \
  --dest-server https://kubernetes.default.svc \
- --dest-namespace helm
+ --dest-namespace default
 ```
 
 # Commands
